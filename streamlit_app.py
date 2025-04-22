@@ -5,6 +5,15 @@ from app.tts import speak_story
 import tempfile
 from PIL import Image
 
+from huggingface_hub import login
+import os
+
+# Get token from Streamlit secrets
+hf_token = st.secrets["HF_TOKEN"]
+
+# Login to Hugging Face Hub
+login(token=hf_token)
+
 st.set_page_config(page_title="GenAI Storyteller", layout="centered")
 
 st.title("📸🧠 GenAI Storyteller")
