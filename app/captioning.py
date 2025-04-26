@@ -1,14 +1,16 @@
 from app.logger import get_logger
 logger = get_logger(__name__)
 
-from transformers import VisionEncoderDecoderModel, ViTImageProcessor, AutoTokenizer
+from transformers import AutoTokenizer, AutoImageProcessor, VisionEncoderDecoderModel
 from PIL import Image
 import torch
 
-# Load processor and model (ViT)
-model = VisionEncoderDecoderModel.from_pretrained("nlpconnect/vit-gpt2-image-captioning")
-processor = ViTImageProcessor.from_pretrained("nlpconnect/vit-gpt2-image-captioning")
-tokenizer = AutoTokenizer.from_pretrained("nlpconnect/vit-gpt2-image-captioning")
+model_id = "cnmoro/nano-image-captioning"
+# Load model, tokenizer, and image processor
+model = VisionEncoderDecoderModel.from_pretrained(model_id)
+tokenizer = AutoTokenizer.from_pretrained(model_id)
+image_processor = AutoImageProcessor.from_pretrained(model_id)
+
 # Move model to GPU if available
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 print("DEVICE:--------> ",device)
@@ -21,10 +23,10 @@ def generate_caption(image_path: str) -> str:
         image = Image.open(image_path).convert('RGB')
         
         # Preprocess image and prepare inputs
-        inputs = processor(images=image, return_tensors="pt").to(device)
+        inputs = image_processor(images=image, return_tensors="pt").to(device)
 
         # Generate caption (greedy decoding for now)
-        output = model.generate(**inputs, max_length=16, num_beams=1)
+        output = model.generate(**inputs, max_length=30, num_beams=1)
         
         # Decode output to text
         caption = tokenizer.decode(output[0], skip_special_tokens=True)
