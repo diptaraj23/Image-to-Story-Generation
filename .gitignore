@@ -2,6 +2,7 @@ venv/
 __pycache__/
 outputs/
 logs/
+assets/
 test.ipynb
 .streamlit/secrets.toml
 *.pyc
