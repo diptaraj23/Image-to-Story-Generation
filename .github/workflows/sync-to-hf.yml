@@ -1,0 +1,29 @@
+name: Sync to Hugging Face Space
+on:
+  push:
+    branches:
+      - hf-space
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Git
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+
+      - name: Add Hugging Face remote
+        run: |
+          git remote add space https://huggingface.co/spaces/dipta-dataist/Image-to-Story-Generation
+          git fetch space
+
+      - name: Push to Hugging Face Space
+        run: |
+          git push --force space hf-space:main
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
