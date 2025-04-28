@@ -1,5 +1,15 @@
-# GenAI Storyteller
+---
+title: Your Space Title
+emoji: 🚀
+colorFrom: indigo
+colorTo: blue
+sdk: gradio
+app_file: app.py
+pinned: false
+license: apache-2.0
+---
 
+# GenAI Storyteller
 GenAI Storyteller is a Streamlit-based application that transforms images into captivating stories and narrates them aloud. The application leverages state-of-the-art AI models for image captioning, story generation, and text-to-speech conversion.
 
 ## Features
