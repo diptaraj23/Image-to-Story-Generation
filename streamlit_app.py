@@ -9,7 +9,8 @@ from huggingface_hub import login
 import os
 
 # Get token from Streamlit secrets
-hf_token = st.secrets["HF_TOKEN"]
+#hf_token = st.secrets["HF_TOKEN"]
+hf_token = os.getenv("HF_TOKEN")
 
 # Login to Hugging Face Hub
 login(token=hf_token)
