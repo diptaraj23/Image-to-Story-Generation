@@ -17,18 +17,7 @@ jobs:
           fetch-depth: 0
           lfs: true
 
-      - name: Set up Git
-        run: |
-          git config user.name "GitHub Actions"
-          git config user.email "actions@github.com"
-
-      - name: Add Hugging Face remote
-        run: |
-          git remote add space https://huggingface.co/spaces/dipta-dataist/Image-to-Story-Generation
-          git fetch space
-
       - name: Push to Hugging Face Space
-        run: |
-          git push --force space hf-space:main
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
+        run: git push https://dipta-dataist:$HF_TOKEN@huggingfgace.co/sapces/Image-to-Story-Generation hf-space:main --force
