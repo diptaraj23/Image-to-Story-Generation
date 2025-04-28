@@ -1,5 +1,5 @@
 ---
-title: Your Space Title
+title: Image-to-Story-Generation
 emoji: 🚀
 colorFrom: indigo
 colorTo: blue
@@ -9,8 +9,8 @@ pinned: false
 license: apache-2.0
 ---
 
-# GenAI Storyteller
-GenAI Storyteller is a Streamlit-based application that transforms images into captivating stories and narrates them aloud. The application leverages state-of-the-art AI models for image captioning, story generation, and text-to-speech conversion.
+# Image-to-Story-Generation
+Image-to-Story-Generation is a Streamlit-based application that transforms images into captivating stories and narrates them aloud. The application leverages state-of-the-art AI models for image captioning, story generation, and text-to-speech conversion.
 
 ## Features
 
