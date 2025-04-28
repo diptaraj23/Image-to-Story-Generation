@@ -3,8 +3,8 @@ title: Your Space Title
 emoji: 🚀
 colorFrom: indigo
 colorTo: blue
-sdk: gradio
-app_file: app.py
+sdk: streamlit
+app_file: streamlit_app.py
 pinned: false
 license: apache-2.0
 ---
